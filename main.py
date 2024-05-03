@@ -5,6 +5,13 @@ def choose_file():
     file_path = filedialog.askopenfilename()
     if file_path:
         label.config(text="Вибраний файл: " + file_path)
+        with  open(file_path) as f:
+            textinfile = f.read()
+        clovo = textinfile.split(" ")
+        kil_clovo = len(clovo)
+        kil_sumvoliv = len(textinfile)
+        label.config(text = f" Кількість слів: {kil_clovo }, Кількість літер: {kil_sumvoliv }")
+
 
 root = tk.Tk()
 root.title("Оберіть файл")
